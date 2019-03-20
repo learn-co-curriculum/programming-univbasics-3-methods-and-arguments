@@ -3,25 +3,23 @@
 ## Learning Goals
 
 - Describe the functionality of arguments
-- Define methods that accept arguments
+- Define a method that accepts arguments
 - Recognize the difference between arguments and parameters
 
 ## Introduction
 
-In the real world, many interactions are customized or specific to our
-day-to-day experiences. For example, if you go to a coffee shop, they may take
-down your name to call up your order when it's ready. If visit a doctor's
-office, they may call your name when it's your turn to be seen. Variables that
-we experience in real life often need to be translated into to programs.
+In the real world, many interactions have a "template" behavior that is applied
+to every interaction, but they change only slightly depending on a tiny factor.
 
-In the example of the doctor's office or the coffee shop they have a "template"
-behavior that they apply to everyone, but that they change only slightly
-depending on the particular customer or patient. Methods can also be written to
-have a "template" of shared activity but which can be changed just a little bit
-depending on some particular data. The particular bits that make the change are
-called "arguments."
+For example, if you go to a coffee shop, they may take down **your** name to call up
+your order when it's ready. If you visit a doctor's office, they may call **your**
+name when it's your turn to be seen. Methods can also be written to have a
+"template" of shared activity, but this activity can be changed just a little
+bit depending on some particular variation in data.
 
-## Describe the functionality of arguments
+The particular bits that make the change are called "arguments."
+
+## Describe the Functionality of Arguments
 
 When we log into email, social media, or any other user-based platform, what do
 we normally see after logging in?
@@ -40,41 +38,47 @@ greeting
 #=> Hi, Ruby Programmer
 ```
 
-As amazing as this method is, it's still pretty static. It hard-codes, or
+As amazing as this method is, it's still pretty _static_. It hard-codes, or
 directly specifies, the name of the person we are greeting as `"Ruby
 programmer"`. If we wanted to build a method that can greet _anyone_ by name,
 we'd need to be able to add input into the body of the method.
 
-Just like with a real-world greeting, we'd want our method to be more dynamic,
+Just like with a real-world greeting, we'd want our method to be more _dynamic_,
 more abstract, and _more re-usable_. Remember our DRY (Don't Repeat Yourself)
 principle? The method should maintain the elements that will always be the same,
 no matter who we greet, but allow us to change, or swap out, the name of the
-person we are greeting. This is "dynamic", as opposed to "hard-coded".
+person we are greeting. This is considered _dynamic_, or able to adapt to change
+or progress, as opposed to _static_, which in the case of programming means
+"hard-coded".
 
-## Define methods that accept arguments
+## Define a Methods That Accepts Arguments
 
-Now that we see the limitations of basic methods, how do we take the information
+Now that we see the limitations of static methods, how do we take the information
 we know about arguments and apply it to real-world scenarios like that of a
 doctor's office or a coffee shop?
 
-To add arguments to a method, you specify them in he line that starts with
+To add arguments to a method, you specify them in the line that starts with
 `def`. 
 
 For example, if we want to write a method called `greeting_a_person` that
 accepts an argument of a person's name, we would do it like this:
 
 ```ruby
-    #method name      #argument
+    #method name      #parameter
 def greeting_a_person(name)
   "Hello #{name}"
 end
 ```
 
-Arguments create new _local_ variables that can be used within the method. When
-you name an argument, you are defining what word you want to use to access that
-data, just like when you create a variable. Arguments follow the same rules as
-local variables: they can be any word that starts with a lowercase letter and
-they should be as descriptive of the data as possible.
+As you can see in the example above, the name parameter now holds a name, which
+is being passed in as an argument in the invocation of.
+
+Arguments that are passed into methods create new _local_ variables that can be
+used within the _scope_ of the method. When you name an argument, you are
+defining what word you want to use to access that data, just like when you
+create a variable. Arguments follow the same rules as local variables: they can
+be any word that starts with a lowercase letter and they should be as
+descriptive of the data as possible.
 
 In our `#greeting_a_person` method example, we are saying: When you call the
 `#greeting_a_person` method with an argument of `"Maria"`, set a variable `name`
@@ -102,7 +106,7 @@ method that accepts two arguments: a person's name and their programming
 language of choice.
 
 ```ruby
-  # method name      first_argument, second_argument
+  # method name      first_parameter, second_parameter
 def greeting_programmer(name, language)
   puts "Hello, #{name}. We heard you are a great #{language} programmer."
 end
@@ -127,15 +131,20 @@ end
 greeting # We call the method without a value for the argument `name`
 # > ArgumentError: wrong number of arguments (0 for 1)
 
-greeting(name) # If we call the method without passing in a value for the variable `name` we see:
+greeting(name) # If we call the method without setting a value for name, or passing in a value for the argument `name` we see:
 # > NameError: undefined local variable or method `name' for main:Object
 ```
 
-The word, in this case `name`, that we use as the argument's name in the method
+The word, in this case `name`, that we use as a parameter in the method
 signature becomes a local variable within the method. Through that variable we
 can reference the value of the argument inside the body of the method.
 
-Additionally, a method defined to accept one argument will raise an error if
+The number of arguments, or inputs, an operation expects is called _arity_. The
+_arity_ of addition is two: we expect two numbers to add. The `arity` of
+`greeting` is one: we told ruby to expect one argument for its parameter, `name`
+and by golly, Ruby will get mad if we break our promise to it.
+
+A method defined to accept one argument will raise an error if
 called with more than one argument.
 
 ```ruby
@@ -147,9 +156,10 @@ greeting("Maria", "Ruby") # The method accepts 1 argument and I supplied 2.
 # > ArgumentError: wrong number of arguments (2 for 1)
 ```
 
-By default, all arguments defined in a method are required in order to correctly
-invoke (or "call", or "execute") that method and method arguments create local
-variables for you use when the method is actually called.
+Again, the arity of greeting is one, by providing it two arguments, Ruby gets
+upset. By default, all arguments defined in a method are required in order to
+correctly invoke (or "call", or "execute") that method and method arguments
+create local variables for you use when the method is actually called.
 
 ## Recognize the Difference Between Arguments and Parameters
 
@@ -178,8 +188,9 @@ argument.
 
 ## Conclusion
 
-In order to create dynamic functions in Ruby, pass in arguments, defined as
-_parameters_ on the method, that can be used in the body of the method. 
+In order to create dynamic functions in Ruby, pass in arguments, which are
+stored as _parameters_ within the scope of the method, that can be used in the
+body of the method.
 
 This gives us a lot more flexibility to maintain efficient code bases, as well
 as to apply real-world concepts when building our programs. You'll learn more
