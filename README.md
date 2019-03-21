@@ -9,13 +9,14 @@
 ## Introduction
 
 In the real world, many interactions have a "template" behavior that is applied
-to every interaction, but they change only slightly depending on a tiny factor.
+to every interaction, but these behaviors change only slightly depending on a
+tiny factor.
 
-For example, if you go to a coffee shop, they may take down **your** name to call up
-your order when it's ready. If you visit a doctor's office, they may call **your**
+For example, if you go to a coffee shop, they take down **your** name to call you
+up when your order is ready. If you visit a doctor's office, they may call **your**
 name when it's your turn to be seen. Methods can also be written to have a
 "template" of shared activity, but this activity can be changed just a little
-bit depending on some particular variation in data.
+bit when necessary.
 
 The particular bits that make the change are called "arguments."
 
@@ -38,7 +39,7 @@ greeting
 #=> Hi, Ruby Programmer
 ```
 
-As amazing as this method is, it's still pretty _static_. It hard-codes, or
+As amazing as this method is, it's _static_. It hard-codes, or
 directly specifies, the name of the person we are greeting as `"Ruby
 programmer"`. If we wanted to build a method that can greet _anyone_ by name,
 we'd need to be able to add input into the body of the method.
@@ -51,14 +52,14 @@ person we are greeting. This is considered _dynamic_, or able to adapt to change
 or progress, as opposed to _static_, which in the case of programming means
 "hard-coded".
 
-## Define a Methods That Accepts Arguments
+## Define a Method That Accepts Arguments
 
 Now that we see the limitations of static methods, how do we take the information
 we know about arguments and apply it to real-world scenarios like that of a
 doctor's office or a coffee shop?
 
-To add arguments to a method, you specify them in the line that starts with
-`def`. 
+To define the arguments you expect a method to take, you specify parameters in the
+line that starts with `def`. 
 
 For example, if we want to write a method called `greeting_a_person` that
 accepts an argument of a person's name, we would do it like this:
@@ -70,15 +71,15 @@ def greeting_a_person(name)
 end
 ```
 
-As you can see in the example above, the name parameter now holds a name, which
-is being passed in as an argument in the invocation of.
+As you can see in the example above, the `name` parameter now holds a name, which
+is being passed in as an argument its invocation.
 
 Arguments that are passed into methods create new _local_ variables that can be
-used within the _scope_ of the method. When you name an argument, you are
-defining what word you want to use to access that data, just like when you
-create a variable. Arguments follow the same rules as local variables: they can
-be any word that starts with a lowercase letter and they should be as
-descriptive of the data as possible.
+used within the _scope_ of the method. We call these local variables _parameters_.
+When you name an argument, you are defining what word you want to use to access
+that data, just like when you create a variable. Arguments follow the same rules
+as local variables: they can be any word that starts with a lowercase letter and
+they should be as descriptive of the data as possible.
 
 In our `#greeting_a_person` method example, we are saying: When you call the
 `#greeting_a_person` method with an argument of `"Maria"`, set a variable `name`
