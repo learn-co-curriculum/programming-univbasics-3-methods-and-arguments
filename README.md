@@ -12,11 +12,11 @@ In the real world, many interactions have a "template" behavior that is applied
 to every interaction, but these behaviors change only slightly depending on a
 tiny factor.
 
-For example, if you go to a coffee shop, they take down **your** name to call you
-up when your order is ready. If you visit a doctor's office, they may call **your**
-name when it's your turn to be seen. Methods can also be written to have a
-"template" of shared activity, but this activity can be changed just a little
-bit when necessary.
+For example, if you go to a coffee shop, they take down **your** name to call
+you up when your order is ready. If you visit a doctor's office, they may call
+**your** name when it's your turn to be seen. Methods can also be written to
+have a "template" of shared activity, but this activity can be changed just a
+little bit when necessary.
 
 The particular bits that make the change are called "arguments."
 
@@ -39,15 +39,15 @@ greeting
 #=> Hi, Ruby Programmer
 ```
 
-As amazing as this method is, it's _static_. It hard-codes, or
-directly specifies, the name of the person we are greeting as `"Ruby
-programmer"`. If we wanted to build a method that can greet _anyone_ by name,
-we'd need to be able to add input into the body of the method.
+As amazing as this method is, it's _static_. It hard-codes, or directly
+specifies, the name of the person we are greeting as `"Ruby programmer"`. If we
+wanted to build a method that can greet _anyone_ by name, we'd need to be able
+to add input into the body of the method.
 
 Just like with a real-world greeting, we'd want our method to be more _dynamic_,
 more abstract, and _more re-usable_. Remember our DRY (Don't Repeat Yourself)
 principle? The method should maintain the elements that will always be the same,
-no matter who we greet, but allow us to change, or swap out, the name of the
+no matter whom we greet, but allow us to change, or swap out, the name of the
 person we are greeting. This is considered _dynamic_, or able to adapt to change
 or progress, as opposed to _static_, which in the case of programming means
 "hard-coded".
@@ -55,11 +55,11 @@ or progress, as opposed to _static_, which in the case of programming means
 ## Define a Method That Accepts Arguments
 
 Now that we see the limitations of static methods, how do we take the information
-we know about arguments and apply it to real-world scenarios like that of a
+we know about arguments and apply them to real-world scenarios like that of a
 doctor's office or a coffee shop?
 
 To define the arguments you expect a method to take, you specify parameters in the
-line that starts with `def`. 
+line that starts with `def`.
 
 For example, if we want to write a method called `greeting_a_person` that
 accepts an argument of a person's name, we would do it like this:
@@ -81,11 +81,11 @@ that data, just like when you create a variable. Arguments follow the same rules
 as local variables: they can be any word that starts with a lowercase letter and
 they should be as descriptive of the data as possible.
 
-In our `#greeting_a_person` method example, we are saying: When you call the
-`#greeting_a_person` method with an argument of `"Maria"`, set a variable `name`
+In our `greeting_a_person` method example, we are saying: When you call the
+`greeting_a_person` method with an argument of `"Maria"`, set a variable `name`
 equal to the value of `"Maria"`.
 
-Let's open up IRB and try this out! First, take the `#greeting_a_person` code
+Let's open up IRB and try this out! First, take the `greeting_a_person` code
 sample and paste it into your command line. Once that has been entered, you can
 test out the method like this:
 
@@ -93,6 +93,7 @@ test out the method like this:
 greeting_a_person("Maria")
 # => "Hello Maria"
 ```
+
 or this:
 
 ```bash
@@ -119,9 +120,9 @@ greeting_programmer("Steven", "Elixir")
 # > Hello, Steven. We heard you are a great Elixir programmer.
 ```
 
-Once you define arguments for a method, they become _required_ when you invoke,
-or call, the method. What happens when you don't pass in the required argument?
-When an argument with a value is not passed int, you get an `ArgumentError`.
+Once you define arguments for a method, they become _required_ when you invoke
+or call the method. What happens when you don't pass in the required argument?
+When an argument with a value is not passed in, you get an `ArgumentError`.
 Here's an example:
 
 ```ruby
@@ -137,7 +138,7 @@ greeting(name) # If we call the method without setting a value for name, or pass
 ```
 
 The word, in this case `name`, that we use as a parameter in the method
-signature becomes a local variable within the method. Through that variable we
+signature becomes a local variable within the method. Through that variable, we
 can reference the value of the argument inside the body of the method.
 
 The number of arguments, or inputs, an operation expects is called _arity_. The
@@ -183,7 +184,7 @@ end
 greeting(argument)
 ```
 
-In the `#greeting` method, the variable `parameter` is the parameter for the
+In the `greeting` method, the variable `parameter` is the parameter for the
 method and when calling the method, the value passed for `argument` is the
 argument.
 
@@ -198,4 +199,5 @@ as to apply real-world concepts when building our programs. You'll learn more
 about arguments in future lessons.
 
 ## Resources
-[Difference between Argument and Parameter in ruby on rails](http://rorguide.blogspot.com/2011/06/difference-between-argument-and.html)
+
+[Difference between Argument and Parameter in Ruby on Rails](http://rorguide.blogspot.com/2011/06/difference-between-argument-and.html)
