@@ -164,6 +164,21 @@ upset. By default, all arguments defined in a method are required in order to
 correctly invoke (or "call", or "execute") that method and method arguments
 create local variables for you use when the method is actually called.
 
+Occasionally, you will see this type of method argument referred to as a **positional 
+argument**. This is because the position of arguments matters - in the example below, we've
+mistakenly swapped the order of the two arguments, causing the printed message to sound a
+bit funny:
+
+```ruby
+  # method name      first_parameter, second_parameter
+def greeting_programmer(name, language)
+  puts "Hello, #{name}. We heard you are a great #{language} programmer."
+end
+
+greeting_programmer("Elixir", "Steven")
+# > Hello, Elixir. We heard you are a great Steven programmer.
+```
+
 ## Recognize the Difference Between Arguments and Parameters
 
 Now that we know how to define a method with arguments, let's define the
